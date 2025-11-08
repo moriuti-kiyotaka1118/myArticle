@@ -7,9 +7,6 @@ ja:
         title: タイトル
         body: 本文
         summary: 要約
-      comment:
-        commenter: お名前
-        body: コメント
 
   date:
     formats:
@@ -32,9 +29,7 @@ ja:
     submit:
       create: "%{model}を作成しました"
       update: "%{model}を更新しました"
-      destroy: "%{model}を削除しました"
 
   notices:
     create: "%{model}が正常に作成されました。"
     update: "%{model}が正常に更新されました。"
-    destroy: "%{model}を削除しました。"

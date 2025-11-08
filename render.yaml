@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: article-web
+    env: ruby
+    buildCommand: bundle install && yarn install && rails assets:precompile
+    startCommand: bundle exec puma -C config/puma.rb
+    postDeployCommand: |
+      bundle exec rails db:schema:load &&
+      bundle exec rails db:schema:load:queue &&
+      bundle exec rails db:schema:load:cable &&
+      bundle exec rails db:schema:load:cache
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: article-db
+          property: connectionString
+databases:
+  - name: article-db
